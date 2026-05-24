@@ -1,0 +1,41 @@
+body {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: sans-serif;
+}
+
+h1 {
+  margin-bottom: 24px;
+}
+
+#products {
+  flex-direction: column;
+  gap: 16px;
+  display: flex;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 4px #0000000f;
+}
+
+.product-name {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.product-description {
+  color: #555;
+  margin: 0 0 12px;
+}
+
+.product-price {
+  color: #2196f3;
+  font-size: 18px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=goit-hw-14.c92073ef.css.map */
