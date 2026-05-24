@@ -1,0 +1,19 @@
+{
+  "name": "handlebars-project",
+  "version": "1.0.0",
+  "description": "Handlebars + Parcel project",
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "start": "parcel",
+    "build": "parcel build --public-url ./",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "parcel": "^2.13.3"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.9"
+  }
+}
