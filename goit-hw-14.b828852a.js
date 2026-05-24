@@ -207,11 +207,11 @@
       });
     }
   }
-})({"93v64":[function(require,module,exports,__globalThis) {
+})({"e05jp":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 51134;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -718,6 +718,9 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
 var _dataJs = require("../../data.js");
+var _greetingsJs = require("./greetings.js");
+var _greetingsJsDefault = parcelHelpers.interopDefault(_greetingsJs);
+var _counterJs = require("./counter.js");
 const productTemplateSource = `
 <div class="product-card">
   <h2 class="product-name">{{name}}</h2>
@@ -730,8 +733,30 @@ const container = document.getElementById('products');
 (0, _dataJs.products).forEach((product)=>{
     container.innerHTML += productTemplate(product);
 });
+const greetingEl = document.getElementById('greeting');
+greetingEl.textContent = `${(0, _greetingsJsDefault.default)()}`;
+const counter = (0, _counterJs.createCounter)(0);
+const countEl = document.getElementById('count');
+const statusEl = document.getElementById('status');
+function updateUI() {
+    countEl.textContent = counter.getCount();
+    statusEl.textContent = (0, _counterJs.getStatus)(counter.getCount());
+}
+updateUI();
+document.getElementById('increment').addEventListener('click', ()=>{
+    counter.increment();
+    updateUI();
+});
+document.getElementById('decrement').addEventListener('click', ()=>{
+    counter.decrement();
+    updateUI();
+});
+document.getElementById('reset').addEventListener('click', ()=>{
+    counter.reset();
+    updateUI();
+});
 
-},{"handlebars":"9pFby","../../data.js":"fFIED","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"9pFby":[function(require,module,exports,__globalThis) {
+},{"handlebars":"9pFby","../../data.js":"fFIED","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT","./greetings.js":"jbW9v","./counter.js":"btPwB"}],"9pFby":[function(require,module,exports,__globalThis) {
 'use strict';
 exports.__esModule = true;
 // istanbul ignore next
@@ -12001,6 +12026,46 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["93v64","lhpGb"], "lhpGb", "parcelRequire806c", {})
+},{}],"jbW9v":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "default", ()=>getTimeGreeting);
+function getTimeGreeting() {
+    const hour = new Date().getHours();
+    if (hour < 12) return "\u0414\u043E\u0431\u0440\u043E\u0433\u043E \u0440\u0430\u043D\u043A\u0443 \uD83C\uDF05";
+    if (hour < 18) return "\u0414\u043E\u0431\u0440\u043E\u0433\u043E \u0434\u043D\u044F \u2600\uFE0F";
+    return "\u0414\u043E\u0431\u0440\u043E\u0433\u043E \u0432\u0435\u0447\u043E\u0440\u0430 \uD83C\uDF19";
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"btPwB":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createCounter", ()=>createCounter);
+parcelHelpers.export(exports, "getStatus", ()=>getStatus);
+function createCounter(initialValue = 0) {
+    let count = initialValue;
+    return {
+        increment () {
+            return ++count;
+        },
+        decrement () {
+            return --count;
+        },
+        reset () {
+            count = 0;
+            return count;
+        },
+        getCount () {
+            return count;
+        }
+    };
+}
+function getStatus(count) {
+    if (count > 0) return `\u{41F}\u{43E}\u{437}\u{438}\u{442}\u{438}\u{432}\u{43D}\u{435} \u{447}\u{438}\u{441}\u{43B}\u{43E} \u{2705}`;
+    if (count < 0) return `\u{412}\u{456}\u{434}'\u{454}\u{43C}\u{43D}\u{435} \u{447}\u{438}\u{441}\u{43B}\u{43E} \u{274C}`;
+    return `\u{41D}\u{443}\u{43B}\u{44C} \u{1F7E1}`;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["e05jp","lhpGb"], "lhpGb", "parcelRequire806c", {})
 
 //# sourceMappingURL=goit-hw-14.b828852a.js.map
