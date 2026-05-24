@@ -1,15 +1,29 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Handlebars + Parcel</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-  <h1>Список продуктів</h1>
-  <div id="products"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handlebars + Parcel</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h1>Список продуктів</h1>
+    <div id="products"></div>
 
-  <script type="module" src="./js/main.js"></script>
-</body>
+    <div class="container counter-container">
+      <h1 id="greeting"></h1>
+
+      <div class="counter">
+        <button id="decrement">−</button>
+        <span id="count">0</span>
+        <button id="increment">+</button>
+      </div>
+
+      <p id="status"></p>
+
+      <button id="reset">Скинути</button>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+  </body>
 </html>
